@@ -1,0 +1,727 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Clash display', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    color: #080808;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    width: 95%;
+}
+
+.slider-wrapper {
+    position: relative;
+
+}
+
+.slider-wrapper .slide-button { /* to cak morem zbrisati*/
+    position:absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #000;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-wrapper .slide-button:hover{
+    background: #444;
+}
+
+.slider-wrapper .slide-button#prev-slide {
+    left: -20px;
+    display:none;
+
+}
+
+.slider-wrapper .slide-button#next-slide {
+    right: -20px;
+    
+}
+
+#header {
+    width: 100%;
+}
+    
+
+
+.slider-wrapper .image-list {
+    display:grid;
+    gap: 18px;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar{
+    display: none;
+
+}
+
+.slider-wrapper .image-list .image-item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+}
+
+
+.container .slider-scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.slider-scrollbar .scrollbar-track {
+    height:2px;
+    width: 100%;
+    background: #ccc;
+    position: relative;
+    border-radius: 4px;
+}
+
+.slider-scrollbar:hover .scrollbar-track {
+    height: 2px;
+
+}
+
+.slider-scrollbar .scrollbar-thumb {
+    position: absolute;
+    height:100%;
+    width: 50%;
+    background: #000;
+    border-radius: inherit;
+    cursor: grab;
+}
+
+.slider-scrollbar .scrollbar-thumb:active {
+    cursor: grabbing;
+    height:2px;  
+
+}
+
+.slider-scrollbar .scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: o;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+@media (max-width: 1023px) {
+    .slider-wrapper .slide-button{
+        display: none!important;
+    }
+    .slider-wrapper  .image-list{
+        gap: 10px;
+        margin-bottom:15px;
+    }
+    .slider-wrapper .image-list .image-item {
+        width: 280px;
+        height: 380px;
+    }
+    .slider-scrollbar .scrollbar-thumb {
+        width:20%;
+    }
+}
+
+nav {
+    display: flex; /* za manipulaciju centriranja itd */
+    align-items: center;
+    justify-content: center; /* Centering the navigation on the x-axis */
+    height: 200px;
+    margin-top: 0px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display:inline-block; /*znaci da su svi u jednom redu*/
+    list-style:none;
+    margin: 10px 80px;
+}
+
+nav ul li a {
+    color: #080808;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+
+}
+
+nav ul li a::after {
+    content: ''; /* Add a pseudo-element for the line */
+    position: absolute;
+    bottom: -3px; /* Adjust the position of the line as needed */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Height of the line */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s;
+
+}
+nav ul li a:hover::after{
+    background-color: #080808 ;
+}
+
+p{
+    font-family: 'Neue Regrade', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top:0px;
+}
+
+.foto{
+    color: #080808;
+    font-family: 'Neue Regrade', sans-serif;
+    font-size: 16px;
+    width: 95%;
+    margin-bottom: 50px;
+    margin-top:0px;
+} 
+
+h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 70px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    font-weight: 500;
+   
+}
+
+.photo-gallery{
+    display:flex;
+    gap:18px;
+}
+
+.column1,
+.column2,
+.column3
+{
+    display:flex;
+    flex-direction: column;
+    gap:18px;
+    width: 33.33%;
+}
+
+
+.column4 {
+    display:flex;
+    flex-direction: row;
+    gap:18px;
+    width: 100%;
+}
+/* se koristi ovaj column?*/
+
+
+.photo img {
+    width: 100%;
+    display:flex;
+    align-items: center;
+}
+
+.containergallery {
+    max-width: 900px;
+    width: 95%;
+    display:grid;
+}
+
+.image-list a {
+    position: relative; /* Ensure relative positioning for proper stacking */
+    display: inline-block; /* Ensure proper inline block layout */
+}
+
+.image-list a .hover-image {
+    position: absolute; /* Position the hover image absolutely */
+    top: 0; /* Position at the top of the anchor */
+    left: 0; /* Position at the left of the anchor */
+    width: 100%; /* Take full width of the anchor */
+    height: 100%; /* Take full height of the anchor */
+    object-fit: cover; /* Ensure the image covers the anchor */
+    display: none; /* Initially hide the hover image */
+}
+
+.image-list a:hover .hover-image {
+    display: block; /* Show the hover image when anchor is hovered */
+}
+
+.image-list a img {
+    width: 100%; /* Ensure images take full width of the anchor */
+    height: auto; /* Allow images to maintain aspect ratio */
+    display: block; /* Make images block-level elements */
+}
+
+
+.containergallery2 {
+    max-width: 900px; /* Set maximum width for the container */
+    width: 95%; /* Set width to 95% of its containing block */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    gap:18px;
+    margin-top: 18px;
+}
+
+.photo2 {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.photo2 img {
+    width: 100%; /* Make the image width 100% of its container */
+    display: block; /* Display images as block elements */
+}
+
+.photo3 {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.photo3 img {
+    width: 100%; /* Make the image width 100% of its container */
+    display: block; /* Display images as block elements */
+    height:auto; /* Maintain aspect ratio */
+}
+
+.photo2:nth-child(1) {
+    flex: 0 0 65.4%; /* Enviro4.jpg takes up 66% of the container width */
+}
+
+.photo2:nth-child(2) {
+    flex: 0 0 32.6%; /* Enviro5.jpg takes up 33% of the container width */
+}
+
+.photo3:nth-child(2) {
+    flex: 0 0 65.4%; /* Enviro4.jpg takes up 66% of the container width */
+}
+
+.photo3:nth-child(1) {
+    flex: 0 0 32.5%; /* Enviro5.jpg takes up 33% of the container width */
+}
+
+.naslov {
+    margin-top: 100px;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    width: 95%;
+    margin-bottom:30px;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column_text {
+    float: left;
+    background-color: white;
+  }
+
+  
+  .left {
+    width: 25%;
+   
+  }
+  
+  .right {
+   padding-left: 15px;
+    width: 75%;
+    border-left: 2px solid black;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .right {
+    padding-left: 15px;
+    width: 75%;
+    border-left: 3px solid transparent; /* Postavite početnu vrijednost transparentne linije */
+    transition: border-left 0.3s ease; /* Dodajte prijelaz za glatko animiranje */
+}
+
+.right.visible {
+    border-left: 3px solid black; /* Postavite boju linije kada postane vidljiva */
+}
+
+.footer {
+    height: 50px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+
+.contact form {
+    width:400px;
+    text-align: center;
+    margin: auto;
+}
+
+.contact .naslov {
+    margin-bottom: 10px;
+    text-align:left;
+}
+
+form .input-box {
+    display:flex;
+    justify-content: space-between;
+}
+
+.input-box .input-field {
+    width: 48.5%;
+}
+
+.field .itemcontact {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 3px solid black;
+    outline: none;
+    font-family: 'Neue Regrade', sans-serif;
+    font-size: 14px;
+    color: black;
+    margin: 8px 0;
+}
+
+.field .itemcontact::placeholder{
+    color: grey;
+
+}
+
+.field .error-txt {
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    margin: -5px 0 10px; 
+    display: none;
+}
+
+form .textarea-field .itemcontact {
+    resize: none;
+}
+
+form .textarea-field .error-txt {
+    margin-top:-10px;
+}
+
+form button {
+    background: white;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-top:20px;
+    border-bottom: 3px solid transparent; /* Postavite početnu vrijednost transparentne linije */
+    transition: border-bottom 0.3s ease;
+}
+
+form button:hover{
+    border-bottom: 3px solid black;
+}
+
+.containergallerycontact {
+    max-width: 400px;
+    width: 95%;
+    display:grid;
+    margin: auto;
+    margin-top:70px;
+}
+
+#laconiqgif {
+    width: 30%; 
+    margin-left: 308px;
+}
+
+
+
+
+#futer {
+    display: flex; /* za manipulaciju centriranja itd */
+    align-items: center;
+    justify-content: center; /* Centering the navigation on the x-axis */
+    height: 200px;
+    margin-top: 0px;
+}
+
+#futer ul {
+    list-style: none;
+}
+
+
+#futer ul li {
+    display:inline-block; /*znaci da su svi u jednom redu*/
+    list-style:none;
+    margin: 10px 80px;
+}
+
+#futer ul li a {
+    color: #080808;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+
+}
+
+#futer ul li a::after {
+    content: ''; /* Add a pseudo-element for the line */
+    position: absolute;
+    bottom: -3px; /* Adjust the position of the line as needed */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Height of the line */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s;
+
+}
+#futer ul li a:hover::after{
+    background-color: #080808 ;
+}
+
+
+
+section {
+    hyphens: auto;
+}
+
+.child {
+    flex: 1; /* Equal width distribution */
+}
+
+.parent {
+    display: flex;
+}
+
+
+
+/* Add vertical line style */
+.child + .child {
+    border-left: 3px solid black; 
+    padding-left: 10px; /* Adjust spacing between line and text */
+}
+
+.teaindex {
+    font-family: 'Clash Display';
+    color: #080808;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 946px) {
+    .teaindex {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:330px) {
+    p {
+        font-size: 13.5px;
+    }
+}
+
+
+
+
+@media only screen and (min-width:946px) and (max-width:1366px) { /*tablet*/
+
+nav ul li {
+    display:inline-block; /*znaci da su svi u jednom redu*/
+    list-style:none;
+    margin: 10px 50px;
+}
+.parent > .child:first-child {
+    flex-basis: 22%;
+}
+
+.parent > .child:last-child {
+    flex-basis: 78%;
+}
+
+}
+
+@media only screen and (min-width: 1367px) { /* Large screens */
+    .parent > .child:first-child {
+        flex-basis: 20%;
+    }
+
+    .parent > .child:last-child {
+        flex-basis: 80%;
+    }
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('ClashDisplay-Medium.woff2') format('woff2'),
+        url('ClashDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url('NeueRegrade-Regular.woff2') format('woff2'),
+        url('NeueRegrade-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@media only screen and (max-width:946px) {
+    #slikamobitel {
+        flex: 0 0 90%; /* 50% sirine */
+        margin: auto;
+    }
+    #slikamobitel2 {
+        flex: 0 0 90%; /* 100% sirine */
+        margin: auto;
+    }
+    #containergallerymobitel {
+        flex: 0 0 90%; /* 100% sirine */
+        margin: auto;
+    }
+
+    .containergallery {
+        width:85%;
+    }
+
+    #laconiqgif {
+        width:  90%; 
+        margin:auto;
+    }
+
+    .column1,
+    .column2,
+    .column3
+     {
+        display:flex;
+        flex-direction: column;
+        width:  90%;
+        align-items: center;
+        margin: auto;
+    }
+ 
+
+    .photo-gallery{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    .slider-wrapper {
+        position: relative;
+        margin-top:80px;
+    }
+
+    nav ul {
+        display: none; /* Hide the navigation links by default */
+        position: absolute;
+        top: 60px; /* Adjust the top position as needed */
+        left: 5%;
+        width: 100%;
+        background-color: #fff; /* Add background color for better visibility */
+        padding: 10px 0; /* Add padding for better spacing */
+        text-align: left; /* Center align the links */
+        z-index: 999; /* Ensure it appears above other elements */
+        margin-bottom: 30px;
+    }
+
+
+    nav ul.show {
+        display: block;
+    }
+    
+    nav ul li {
+        display: block; /* Display each link as a block element */
+        margin: 10px 0; /* Add vertical margin between each link */
+    }
+
+
+
+
+ 
+.containergallery {
+
+    margin-top:50px;
+}
+
+p {
+    font-size: 16px;
+}
+
+#brisi {
+    display:none;
+}
+
+  .left {
+    width: 30%;
+   
+  }
+  
+  .right {
+   padding-left: 15px;
+    width: 70%;
+    border-left: 2px solid black;
+  }
+  
+  .container {
+    max-width: 1200px;
+    width: 90%;
+}
+
+.parent > .child:first-child {
+    flex-basis: 37%; /* Adjusted width for smaller screens */
+}
+
+.parent > .child:last-child {
+    flex-basis: 63%; /* Adjusted width for smaller screens */
+}
+
+
+/* Show the hamburger menu icon */
+.hamburger-menu {
+    display: block;
+    cursor: pointer;
+    margin-top: 30px;
+    position:absolute;
+    left: 5%; /* Position 5% from the left side */
+}
+
+/* Styling for hamburger bars */
+.bar {
+    width: 40px;
+    height: 3px;
+    background-color: #080808;
+    margin: 5px 0;
+}
+
+
+.hide {
+    display: none;
+}
+}
