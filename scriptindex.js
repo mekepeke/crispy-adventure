@@ -5,16 +5,40 @@ const initSlider = () => {
     const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
 
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    const startDrag = (e) => {
+        isDragging = true;
+        startX = e.pageX - scrollbarThumb.offsetLeft;
+        scrollLeft = imageList.scrollLeft;
+    };
+
+    const endDrag = () => {
+        isDragging = false;
+    };
+
+    const drag = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - scrollbarThumb.offsetWidth / 2;
+        const walk = (x - startX) * 2; // Adjust multiplier as needed
+        imageList.scrollLeft = scrollLeft + walk;
+    };
+
+    scrollbarThumb.addEventListener("mousedown", startDrag);
+    document.addEventListener("mouseup", endDrag);
+    document.addEventListener("mousemove", drag);
+
     const updateScrollThumbPosition = () => {
         const scrollPercentage = (imageList.scrollLeft / maxScrollLeft) * 100;
         const thumbPosition = (scrollPercentage / 100) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
         scrollbarThumb.style.left = `${thumbPosition}px`;
     };
 
-    // Add event listener to update scrollbar thumb position on scroll
     imageList.addEventListener("scroll", updateScrollThumbPosition);
 
-    // Slide images
     slideButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const direction = button.id === "prev-slide" ? -1 : 1;
@@ -28,11 +52,10 @@ const initSlider = () => {
         slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
     };
 
-    handleSlideButtons(); // Initial setup
-    updateScrollThumbPosition(); // Initial setup
+    handleSlideButtons();
+    updateScrollThumbPosition();
 };
 
-// Initialize slider when the window is loaded
 window.addEventListener("load", initSlider);
 
 document.addEventListener("DOMContentLoaded", function () {
