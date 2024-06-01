@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Mauko</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Link for Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <script src="https://smtpjs.com/v3/smtp.js"> </script>
+    <style>
+        .column2plenki {
+            display: flex;
+            justify-content: center; /* Centers the .photo div horizontally */
+            align-items: center;    /* Centers the .photo div vertically */
+        }
+        .photo {
+            /* Any additional styling for the .photo div */
+        }
+        .photo img {
+            max-width: 100%; /* Ensures the image doesn't exceed its container's width */
+            height: auto;    /* Maintains the aspect ratio of the image */
+        }
+        .containergalleryplenki {
+            display: flex;
+            justify-content: center; /* Centers the .photo-galleryplenki div horizontally */
+        }
+        .photo-galleryplenki {
+            display: flex;
+            justify-content: center; /* Ensures the column is centered horizontally */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+<nav class="navigacija">
+    <ul>
+        <li class="contacts"> <a href="./work">LET'S WORK</a> </li>
+        <li class="tea"> <a href="./">PROJECTS</a></li>
+        <li class="information"> <a href="./more"> FIND OUT MORE</a></li>
+    </ul>
+</nav>
+
+<div class="containergalleryplenki">
+    <div class="photo-galleryplenki">
+        <div class="column2plenki">
+            <div class="photo">
+                <img src="Riso-Print.gif" alt="Riso Print">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="containergallery">
+    <p class="naslov">
+        Manus manum lavat
+    </p>
+
+    <div class="containergallery">
+        <section id="trigger-element" class="parent">
+            <section class="child">
+                <p>Project type</p>
+            </section>
+            <section class="child">
+                <p>Risograph Posters</p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Purpose</p>
+            </section>
+            <section class="child">
+                <p>Workshop project </p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Software</p>
+            </section>
+            <section class="child">
+                <p> Paper, scanner, risograph </p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Year</p>
+            </section>
+            <section class="child">
+                <p> 2024 </p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Theme</p>
+            </section>
+            <section class="child">
+                <p>
+                    In the International Design Week Workshop, we had to address important political problems. Due to recent events (elections) in Croatia, I chose an ongoing problem: government corruption.
+                </p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Problem and solution</p>
+            </section>
+            <section class="child">
+                <p>
+                    To highlight this issue ironically, I used the well-known saying “Manus manum lavat” (translated to Croatian as “Ruka ruku mije”). The concept was to illustrate how government officials consistently protect each other when money is involved, ensuring mutual benefits from their actions.
+                </p>
+            </section>
+        </section>
+
+        <section class="parent">
+            <section class="child">
+                <p>Strategy</p>
+            </section>
+            <section class="child">
+                <p>
+                    My approach was to use a recognizable face paired with a compelling layout. For instance, hands encircling a head symbolize how individuals will always safeguard those who benefit them, even through illicit means. Additionally, the arrangement of the hands and head resembles a virus, representing a societal disease.
+                </p>
+            </section>
+        </section>
+
+        <section class="parent last-section ">
+            <section class="child">
+                <p style="margin-bottom: 0px;">Process</p>
+            </section>
+            <section class="child show-line">
+                <p style="margin-bottom: 0px;">
+                    The project was developed using analog techniques. I used printed images relevant to my topic, along with some supplied images, which restricted my selection. I created three layers that we scanned and printed using a risograph. Finally, I used an AxiDraw to produce handwritten text for the project.
+                </p>
+            </section>
+        </section>
+    </div>
+
+    <div id="futer" class="footer">
+        <ul>
+            <li class="tea"> <a href="./magazin">NEXT PROJECT</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
