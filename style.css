@@ -725,3 +725,20 @@ p {
     display: none;
 }
 }
+
+.column2plenki
+{
+    display:flex;
+    gap:18px;
+    width: 33.33%;
+}
+
+.photo-galleryplenki{
+    display:flex;
+    gap:18px;
+}
+
+.containergalleryplenki {
+    max-width: 900px;
+    width: 95%;
+}
