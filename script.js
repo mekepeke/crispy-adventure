@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(slideTimeout);
         
         // Set a new timeout to automatically advance the slideshow
-        slideTimeout = setTimeout(showSlides, 3000); // Adjust the delay (in milliseconds) as needed
+        slideTimeout = setTimeout(showSlides, 5000); // Adjust the delay (in milliseconds) as needed
     }
     
     // Function to move to the next slide manually
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dots[slideIndex - 1].classList.add("active");
         
         // Set a new timeout to resume automatic slideshow after delay
-        slideTimeout = setTimeout(showSlides, 3000); // Adjust the delay (in milliseconds) as needed
+        slideTimeout = setTimeout(showSlides, 5000); // Adjust the delay (in milliseconds) as needed
     }
     
     // Function to move to the previous slide manually
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dots[slideIndex - 1].classList.add("active");
         
         // Set a new timeout to resume automatic slideshow after delay
-        slideTimeout = setTimeout(showSlides, 3000); // Adjust the delay (in milliseconds) as needed
+        slideTimeout = setTimeout(showSlides, 5000); // Adjust the delay (in milliseconds) as needed
     }
     
     // Function to navigate directly to a specific slide
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dots[slideIndex - 1].classList.add("active");
         
         // Set a new timeout to resume automatic slideshow after delay
-        slideTimeout = setTimeout(showSlides, 3000); // Adjust the delay (in milliseconds) as needed
+        slideTimeout = setTimeout(showSlides, 5000); // Adjust the delay (in milliseconds) as needed
     }
     
     // Event listeners for next and previous slide buttons
