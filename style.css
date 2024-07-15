@@ -186,7 +186,7 @@ nav ul li a:hover::after{
 }
 
 p{
-    font-family: 'Neue Regrade', sans-serif;
+    font-family: 'PPNeue Montreal Book', sans-serif;
     font-size: 16px;
     width: 100%;
     margin-bottom: 50px;
@@ -195,7 +195,7 @@ p{
 
 .foto{
     color: #080808;
-    font-family: 'Neue Regrade', sans-serif;
+    font-family: 'PPNeue Montreal Book', sans-serif;
     font-size: 16px;
     width: 95%;
     margin-bottom: 50px;
@@ -396,7 +396,7 @@ form .input-box {
     background: transparent;
     border: 3px solid black;
     outline: none;
-    font-family: 'Neue Regrade', sans-serif;
+    font-family: 'PPNeue Montreal Book', sans-serif;
     font-size: 14px;
     color: black;
     margin: 8px 0;
@@ -584,9 +584,9 @@ nav ul li {
 }
 
 @font-face {
-    font-family: 'Neue Regrade';
-    src: url('NeueRegrade-Regular.woff2') format('woff2'),
-        url('NeueRegrade-Regular.woff') format('woff');
+    font-family: 'PPNeue Montreal Book';
+    src: url('PPNeueMontreal-Book.otf') format('otf'),
+        url('PPNeueMontreal-Book.otf') format('otf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
