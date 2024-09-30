@@ -1,6 +1,5 @@
 const initSlider = () => {
     const imageList = document.querySelector(".slider-wrapper .image-list");
-    const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
     const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
     const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
@@ -39,21 +38,28 @@ const initSlider = () => {
 
     imageList.addEventListener("scroll", updateScrollThumbPosition);
 
-    slideButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const direction = button.id === "prev-slide" ? -1 : 1;
-            const scrollAmount = imageList.clientWidth * direction;
-            imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        });
-    });
-
-    const handleSlideButtons = () => {
-        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
-        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+    // Infinite scroll logic
+    const autoScroll = () => {
+        imageList.scrollLeft += 1; // Adjust speed by changing the increment
+        if (imageList.scrollLeft >= maxScrollLeft) {
+            imageList.scrollLeft = 0; // Reset scroll to start
+        }
     };
 
-    handleSlideButtons();
-    updateScrollThumbPosition();
+    setInterval(autoScroll, 30); // Lower value = faster scroll
+
+    // Scroll buttons (if you still want to keep them)
+    const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+
+    if (slideButtons) {
+        slideButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const direction = button.id === "prev-slide" ? -1 : 1;
+                const scrollAmount = imageList.clientWidth * direction;
+                imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            });
+        });
+    }
 };
 
 window.addEventListener("load", initSlider);
